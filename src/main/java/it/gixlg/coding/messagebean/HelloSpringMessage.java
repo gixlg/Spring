@@ -1,7 +1,6 @@
-package it.gixlg.coding.spring;
+package it.gixlg.coding.messagebean;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**

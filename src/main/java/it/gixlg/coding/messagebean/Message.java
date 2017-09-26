@@ -1,4 +1,4 @@
-package it.gixlg.coding.spring;
+package it.gixlg.coding.messagebean;
 
 import org.springframework.stereotype.Component;
 
