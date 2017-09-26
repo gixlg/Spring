@@ -1,6 +1,7 @@
 package it.gixlg.coding.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,13 +10,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageWriter {
 
-
+    @Autowired
+    @Qualifier("helloSpring") //or @Qualifier("helloSpringMessage")
     Message message;
 
-    @Autowired
-    public MessageWriter(Message helloSpringMessage){
-        this.message= helloSpringMessage;
-    }
 
     public void writeMessage(){
         message.print();
