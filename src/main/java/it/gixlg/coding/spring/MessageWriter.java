@@ -9,8 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageWriter {
 
-    @Autowired
+
     Message message;
+
+    @Autowired
+    public MessageWriter(Message message){
+        this.message= message;
+    }
 
     public void writeMessage(){
         message.print();
