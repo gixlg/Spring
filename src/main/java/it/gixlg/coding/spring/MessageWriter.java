@@ -13,8 +13,8 @@ public class MessageWriter {
     Message message;
 
     @Autowired
-    public MessageWriter(Message message){
-        this.message= message;
+    public MessageWriter(Message helloSpringMessage){
+        this.message= helloSpringMessage;
     }
 
     public void writeMessage(){
