@@ -8,11 +8,14 @@ import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 /**
  * Created by gixlg on 22/09/2017.
  */
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+
 public class MessageWriter {
 
     @Autowired
@@ -22,5 +25,15 @@ public class MessageWriter {
 
     public void writeMessage(){
         message.print();
+    }
+
+    @PostConstruct
+    private void postConstruct(){
+        System.out.println("postConstruct method is called");
+    }
+
+    @PreDestroy //Not Called if the beans have Prototype Scoper
+    private void preDestroy(){
+        System.out.println("preDestroy method is called");
     }
 }
