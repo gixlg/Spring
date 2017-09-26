@@ -1,17 +1,17 @@
 package it.gixlg.coding.spring;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootApplication
+@Configuration
 @ComponentScan({"it.gixlg.coding.spring","it.gixlg.coding.messagebean"}) //or @ComponentScan("it.gixlg.coding")
 public class Application {
 
 	public static void main(String[] args) {
 
-		ConfigurableApplicationContext applicationContext = SpringApplication.run(Application.class, args);
+		ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Application.class);
 		MessageWriter messageWriter1 = applicationContext.getBean(MessageWriter.class);
 		MessageWriter messageWriter2 = applicationContext.getBean(MessageWriter.class);
 
