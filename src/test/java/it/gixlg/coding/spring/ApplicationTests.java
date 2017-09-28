@@ -26,7 +26,7 @@ public class ApplicationTests {
 
     @Test
     public void MessageWriterCheck() {
-        assertEquals("Hello Spring", messageWriter.message.getMessage());
+        assertEquals("My Custom Message!", messageWriter.message.getMessage());
     }
 
     @Test

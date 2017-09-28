@@ -17,8 +17,9 @@ public class Application {
 
 		try (ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")){ //This try call close at the end of block
 			LOGGER.info("Bean loaded {}", (Object) applicationContext.getBeanDefinitionNames());
-			CustomMessage customMessage = applicationContext.getBean(CustomMessage.class);
-			LOGGER.info("customMessage {}", customMessage.getMessage());
+			MessageWriter messageWriter = applicationContext.getBean(MessageWriter.class);
+			messageWriter.writeMessage();
+
 		}
 	}
 

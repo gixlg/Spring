@@ -11,25 +11,14 @@ import javax.annotation.PreDestroy;
 /**
  * Created by gixlg on 22/09/2017.
  */
-@Component
-
 public class MessageWriter {
-
-    @Autowired
-    @Qualifier("helloSpring") //or @Qualifier("helloSpringMessage")
     Message message;
+
+    public void setMessage(Message message) {
+        this.message = message;
+    }
 
     public void writeMessage(){
         System.out.println(message.getMessage());
-    }
-
-    @PostConstruct
-    private void postConstruct(){
-        System.out.println("postConstruct method is called");
-    }
-
-    @PreDestroy //Not Called if the beans have Prototype Scoper
-    private void preDestroy(){
-        System.out.println("preDestroy method is called");
     }
 }

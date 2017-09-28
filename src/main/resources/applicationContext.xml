@@ -7,7 +7,11 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
     <context:component-scan base-package="it.gixlg.coding"></context:component-scan>
-    <bean id = "helloWorld" class = "it.gixlg.coding.messagebean.CustomMessage">
+    <bean id = "customMessage" class = "it.gixlg.coding.messagebean.CustomMessage">
         <property name = "message" value = "My Custom Message!"/>
+    </bean>
+
+    <bean id = "messageWriter" class = "it.gixlg.coding.spring.MessageWriter">
+        <property name = "message" ref = "customMessage"/>
     </bean>
 </beans>
