@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class HelloWorldMessage implements Message {
     @Override
-    public void print() {
-        System.out.println("Hello World");
+    public String getMessage() {
+        return "Hello World";
     }
 }
+

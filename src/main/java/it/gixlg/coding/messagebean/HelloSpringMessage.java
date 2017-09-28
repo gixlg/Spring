@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Qualifier("helloSpring")
 public class HelloSpringMessage implements Message {
     @Override
-    public void print() {
-        System.out.println("Hello Spring");
+    public String getMessage() {
+        return "Hello Spring";
     }
 }

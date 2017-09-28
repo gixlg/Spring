@@ -15,12 +15,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ContextConfiguration(classes = Application.class)
 public class ApplicationTests {
 
-	@Autowired
-	MessageWriter messageWriter;
+    @Autowired
+    MessageWriter messageWriter;
 
-	@Test
-	public void contextLoads() {
-		assertTrue(true);
-	}
+    @Test
+    public void contextLoads() {
+        assertEquals("Hello Spring", messageWriter.message.getMessage());
+    }
 
 }
