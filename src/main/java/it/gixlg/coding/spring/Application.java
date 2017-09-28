@@ -1,25 +1,24 @@
 package it.gixlg.coding.spring;
 
+import it.gixlg.coding.messagebean.CustomMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-@Configuration
-@ComponentScan({"it.gixlg.coding.spring","it.gixlg.coding.messagebean"}) //or @ComponentScan("it.gixlg.coding")
 public class Application {
 
 	final static Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 
-		try (ConfigurableApplicationContext applicationContext = new AnnotationConfigApplicationContext(Application.class)){ //This try call close at the end of block
-			MessageWriter messageWriter1 = applicationContext.getBean(MessageWriter.class);
-			MessageWriter messageWriter2 = applicationContext.getBean(MessageWriter.class);
-
-			compareObjectInstances(messageWriter1, messageWriter2);
+		try (ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml")){ //This try call close at the end of block
+			LOGGER.info("Bean loaded {}", (Object) applicationContext.getBeanDefinitionNames());
+			CustomMessage customMessage = applicationContext.getBean(CustomMessage.class);
+			LOGGER.info("customMessage {}", customMessage.getMessage());
 		}
 	}
 
