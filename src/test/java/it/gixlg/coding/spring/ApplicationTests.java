@@ -1,16 +1,26 @@
 package it.gixlg.coding.spring;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import it.gixlg.coding.messagebean.Message;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@ContextConfiguration(classes = Application.class)
 public class ApplicationTests {
+
+	@Autowired
+	MessageWriter messageWriter;
 
 	@Test
 	public void contextLoads() {
+		assertTrue(true);
 	}
 
 }
