@@ -7,6 +7,10 @@ import it.gixlg.coding.messagebean.CustomMessage;
 import it.gixlg.coding.messagebean.Message;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
@@ -14,24 +18,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Currency;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations ="/applicationContext.xml")
+@RunWith(MockitoJUnitRunner.class)
 public class ApplicationTests {
 
-    @Autowired
+    @InjectMocks
     MessageWriter messageWriter;
 
-    @Autowired
+    @Mock
     CustomMessage customMessage;
 
     @Test
     public void MessageWriterCheck() {
-        assertEquals("My Custom Message!", messageWriter.message.getMessage());
+        Mockito.when(customMessage.getMessage()).thenReturn("Mocked Message");
+        assertEquals("Mocked Message", messageWriter.message.getMessage());
     }
 
-    @Test
-    public void CustomMessageCheck() {
-        assertEquals("My Custom Message!", customMessage.getMessage());
-    }
 
 }
